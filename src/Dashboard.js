@@ -1,5 +1,6 @@
 import React from 'react';
 import { Table, Button, Timeline} from 'rsuite';
+import NavBar from './NavBar';
 import './styles.css';
 import './timeline.less'
 const { Column, HeaderCell, Cell } = Table;
@@ -39,6 +40,7 @@ const data = [
 function Dashboard() {
   return (
     <div className="dashboard">
+        <NavBar></NavBar>
         <div className="timeline dashboard"> {/* Apply the 'timeline' class */}
         <Timeline>
             <Timeline.Item>16:27:41 Your order starts processing</Timeline.Item>

@@ -1,18 +1,20 @@
-import logo from './logo.svg';
-import './App.css';
-import Dashboard from './Dashboard'
-import Home from './Home'
+import React from 'react';
+import { BrowserRouter as Router, Route, Link, Routes } from 'react-router-dom'; // Import the necessary components
+
+import Dashboard from './Dashboard';
+import NavBar from './NavBar';
 
 function App() {
   return (
-    <div>
+    <Router>
       <div className="App">
-        <Home></Home>
+        {/* Define routes using the Routes component */}
+        <Routes>
+          <Route path="/dashboard" element={<Dashboard />} />
+          <Route path="/" element={<NavBar />} />
+        </Routes>
       </div>
-      <div>
-        <Dashboard></Dashboard>
-      </div>
-    </div>
+    </Router>
   );
 }
 
