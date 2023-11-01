@@ -2,7 +2,7 @@ import React from 'react';
 import { BrowserRouter as Router, Route, Link, Routes } from 'react-router-dom'; // Import the necessary components
 
 import Dashboard from './Dashboard';
-import NavBar from './NavBar';
+import Home from './Home';
 
 function App() {
   return (
@@ -11,7 +11,7 @@ function App() {
         {/* Define routes using the Routes component */}
         <Routes>
           <Route path="/dashboard" element={<Dashboard />} />
-          <Route path="/" element={<NavBar />} />
+          <Route path="/" element={<Home />} />
         </Routes>
       </div>
     </Router>
