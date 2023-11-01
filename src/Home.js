@@ -8,6 +8,10 @@ import { Container, Header, Content, Footer, Navbar, Nav } from 'rsuite';
 import HomeIcon from '@rsuite/icons/legacy/Home';
 import CogIcon from '@rsuite/icons/legacy/Cog';
 
+function OnSettingClicked() {
+    console.log("setting clicked");
+}
+
 const Home = () => (
   <div className="show-fake-browser navbar-page">
     <Container>
@@ -27,7 +31,7 @@ const Home = () => (
             </Nav.Menu>
           </Nav>
           <Nav pullRight>
-            <Nav.Item icon={<CogIcon />}>Settings</Nav.Item>
+            <Nav.Item onSelect={OnSettingClicked} icon={<CogIcon />}>Settings</Nav.Item>
           </Nav>
         </Navbar>
       </Header>
