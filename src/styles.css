@@ -1,3 +1,21 @@
 @import "rsuite/dist/rsuite.css";
 
-#root{ padding: 10px; }
+#root {
+  padding: 10px;
+}
+
+.dashboard {
+    display:flex;
+    flex-direction: column;
+    align-items: left;
+    justify-content: center;
+    height: 100vh;
+}
+
+.timeline {
+  align-items: left;
+}
+
+.table-container {
+  align-items: left;
+}
