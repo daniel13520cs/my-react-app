@@ -1,47 +1,60 @@
 import React from 'react';
 import { Table, Button, Timeline} from 'rsuite';
+import ReactDOM from 'react-dom';
+import ImageSlider from './ImageSlider';
 import NavBar from './NavBar';
 import './styles.css';
 import './timeline.less'
+import memeA from '../src/IMG/memeA.jpeg'
+import memeB from '../src/IMG/memeB.jpeg'
+
 const { Column, HeaderCell, Cell } = Table;
 
 // Define a placeholder data array
 const data = [
-  {
-    id: 1,
-    firstName: 'John',
-    lastName: 'Doe',
-    gender: 'Male',
-    age: 30,
-    postcode: '12345',
-    email: 'john@example.com',
-  },
-  {
-    id: 2,
-    firstName: 'Jane',
-    lastName: 'Smith',
-    gender: 'Female',
-    age: 25,
-    postcode: '54321',
-    email: 'jane@example.com',
-  },
-  {
-    id: 3,
-    firstName: 'Daneil',
-    lastName: 'Fake',
-    gender: 'Male',
-    age: 25,
-    postcode: '321',
-    email: 'Daneil@example.com',
-  },
-  // Add more data as needed
-];
+    {
+      id: 1,
+      firstName: 'John',
+      lastName: 'Doe',
+      gender: 'Male',
+      age: 30,
+      postcode: '12345',
+      email: 'john@example.com',
+    },
+    {
+      id: 2,
+      firstName: 'Jane',
+      lastName: 'Smith',
+      gender: 'Female',
+      age: 25,
+      postcode: '54321',
+      email: 'jane@example.com',
+    },
+    {
+      id: 3,
+      firstName: 'Daneil',
+      lastName: 'Fake',
+      gender: 'Male',
+      age: 25,
+      postcode: '321',
+      email: 'Daneil@example.com',
+    },
+    // Add more data as needed
+  ];
+
+// Define a placeholder data array
+const images = [
+    memeA,
+    memeB
+    // Add more image URLs as needed
+  ];
 
 function Dashboard() {
   return (
     <div className="dashboard">
         <NavBar></NavBar>
         <div className="timeline dashboard"> {/* Apply the 'timeline' class */}
+        <ImageSlider images={images} interval={5000} />,
         <Timeline>
             <Timeline.Item>16:27:41 Your order starts processing</Timeline.Item>
             <Timeline.Item>16:28:43 Your order to be ready for delivery</Timeline.Item>
