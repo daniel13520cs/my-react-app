@@ -1,10 +1,11 @@
 import React from 'react';
-import { Table, Button, Timeline } from 'rsuite';
+import { Table, Button, Timeline, FlexboxGrid, Divider } from 'rsuite';
 import ReactDOM from 'react-dom';
 import ImageSlider from './ImageSlider';
 import NavBar from './NavBar';
 import './styles.css';
 import './timeline.less';
+import "./grid.less";
 import memeA from '../src/IMG/memeA.jpeg';
 import memeB from '../src/IMG/memeB.jpeg';
 
@@ -51,8 +52,20 @@ function Dashboard() {
       <div className="navBar">
         <NavBar />
       </div>
-      <div className="image-slider-container ">
-        <ImageSlider images={images} interval={5000} />
+      <div className="show-grid">
+        <FlexboxGrid justify="center">
+          <FlexboxGrid.Item colspan={8}> {/* The full width for the ImageSlider */}
+            <ImageSlider images={images} interval={5000} />
+          </FlexboxGrid.Item>
+          <FlexboxGrid.Item colspan={8}> {/* The full width for the ImageSlider */}
+            <ImageSlider images={images} interval={5000} />
+          </FlexboxGrid.Item>
+          <FlexboxGrid.Item colspan={8}> {/* The full width for the ImageSlider */}
+            <ImageSlider images={images} interval={5000} />
+          </FlexboxGrid.Item>
+        </FlexboxGrid>      
+        <FlexboxGrid>
+</FlexboxGrid>
       </div>
       <div className="timeline ">
         <Timeline>

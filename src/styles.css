@@ -12,6 +12,10 @@
     height: 100vh;
 }
 
+.show-grid{
+  align-items: left;
+}
+
 .navBar{
   align-items: left;
 }
