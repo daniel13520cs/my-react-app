@@ -44,8 +44,6 @@ const NavBar = () => {
             </Nav>
           </Navbar>
         </Header>
-        <Content>Content</Content>
-        <Footer>Footer</Footer>
       </Container>
     </div>
   );

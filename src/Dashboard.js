@@ -48,8 +48,8 @@ const images = [memeA, memeB]; // Use actual imported images
 function Dashboard() {
   return (
     <div className="dashboard">
-        <div className="navBar">
-      <NavBar />
+      <div className="navBar">
+        <NavBar />
       </div>
       <div className="image-slider-container ">
         <ImageSlider images={images} interval={5000} />
