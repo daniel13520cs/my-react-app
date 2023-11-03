@@ -1,23 +1,21 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 
-const ImageSlider = ({ images, interval = 3000 }) => {
+const ImageSlider = ({ images }) => {
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
 
-  useEffect(() => {
-    const intervalId = setInterval(() => {
-      setCurrentImageIndex((prevIndex) => (prevIndex + 1) % images.length);
-    }, interval);
-
-    return () => {
-      clearInterval(intervalId);
-    };
-  }, [images, interval]);
-
-  const img = images[currentImageIndex]; // Use the imported image directly
+  const handleMouseEnter = () => {
+    setCurrentImageIndex((prevIndex) => (prevIndex + 1) % images.length);
+  };
 
   return (
-    <div className="image-slider">
-      <img src={img} alt={`Image ${currentImageIndex + 1}`} />
+    <div
+      className="image-slider"
+      onMouseEnter={handleMouseEnter}
+    >
+      <img
+        src={images[currentImageIndex]}
+        alt={`Image ${currentImageIndex + 1}`}
+      />
     </div>
   );
 };
