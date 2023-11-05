@@ -45,6 +45,9 @@ const data = [
 
 // Define a placeholder data array
 const images = [memeA, memeB]; // Use actual imported images
+const imageSlidesSet = [images, images, images];
+const numImageSliders = imageSlidesSet.length;
+const colspan = 24 / numImageSliders; // Calculate colspan
 
 function Dashboard() {
   return (
@@ -63,7 +66,14 @@ function Dashboard() {
           <FlexboxGrid.Item colspan={8}> {/* The full width for the ImageSlider */}
             <ImageSlider images={images} interval={5000} />
           </FlexboxGrid.Item>
-        </FlexboxGrid>      
+        </FlexboxGrid>     
+        <FlexboxGrid>
+          {imageSlidesSet.map((image, index) => (
+            <FlexboxGrid.Item key={index} colspan={colspan}>
+              <ImageSlider images={image} interval={5000} />
+            </FlexboxGrid.Item>
+          ))}
+        </FlexboxGrid> 
         <FlexboxGrid>
 </FlexboxGrid>
       </div>
