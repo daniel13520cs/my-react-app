@@ -2,15 +2,16 @@ import { BrowserRouter as Router, Route, Link, Routes } from 'react-router-dom';
 import NavBar from './NavBar';
 import { Panel } from 'rsuite';
 import React, { useEffect, useState } from 'react';
+import { apiUrl } from './constants';
 
 function UserComponent() {
   const [userData, setUserData] = useState(null);
 
   useEffect(() => {
     // Replace the URL with the actual URL of your API
-    const apiUrl = '/User';
+    const api = 'https://localhost:7066/User';
 
-    fetch(apiUrl)
+    fetch(api)
       .then((response) => {
         if (!response.ok) {
           throw new Error('Network response was not ok');
@@ -18,7 +19,7 @@ function UserComponent() {
         return response.json();
       })
       .then((data) => {
-        setUserData(data);
+        setUserData(data.userId);
       })
       .catch((error) => {
         console.error('Error:', error);
