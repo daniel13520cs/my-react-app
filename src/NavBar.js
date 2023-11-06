@@ -7,17 +7,21 @@ import './styles.css';
 import './container.less';
 
 const NavBar = () => {
-  const navigate = useNavigate(); // Get the navigate function
-
+  const navigate = useNavigate(); 
   const onHomeClicked = () => {
-    navigate('/'); // Use the navigate function to go to the '/home' route
+    navigate('/'); 
     console.log("Home clicked");
   };
 
   const onDashboardClicked = () => {
-    navigate('/dashboard'); // Use the navigate function to go to the '/home' route
+    navigate('/dashboard'); 
     console.log("Home clicked");
   };
+
+  const onSignClicked = () => {
+    navigate('/Login');
+    console.log('onSignClicked');
+  }
 
   return (
     <div className="show-fake-browser navbar-page">
@@ -33,6 +37,7 @@ const NavBar = () => {
               </Nav.Item>
               <Nav.Item onSelect={onDashboardClicked} >Dashboard</Nav.Item>
               <Nav.Item>Products</Nav.Item>
+              <Nav.Item onSelect={onSignClicked} >Signin</Nav.Item>
               <Nav.Menu title="About">
                 <Nav.Item>Company</Nav.Item>
                 <Nav.Item>Team</Nav.Item>
