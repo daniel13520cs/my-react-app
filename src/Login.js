@@ -35,6 +35,7 @@ import {
                         <Form.Group>
                             <ButtonToolbar>
                             <Button appearance="primary">Sign in</Button>
+                            <Button appearance="primary">Register</Button>
                             <Button appearance="link">Forgot password?</Button>
                             </ButtonToolbar>
                         </Form.Group>
