@@ -12,27 +12,54 @@ import {
   } from 'rsuite';
   import NavBar from './NavBar';
 import React from 'react';
+import {apiURL} from './constants';
 import { useNavigate } from 'react-router-dom'; // Import the necessary components
+    function TextField(props) {
+        const { name, label, accepter, ...rest } = props;
+        return (
+        <Form.Group controlId={`${name}-3`}>
+            <Form.ControlLabel>{label} </Form.ControlLabel>
+            <Form.Control name={name} accepter={accepter} {...rest} />
+        </Form.Group>
+        );
+    }
 
   function Login () {
     const { StringType, NumberType } = Schema.Types;
     const model = Schema.Model({
-        name: StringType().isRequired('This field is required.'),
-        email: StringType()
-          .isEmail('Please enter a valid email address.')
-          .isRequired('This field is required.')
+        Username: StringType().isRequired('This field is required.'),
+        Password: StringType().isRequired('This field is required.')
       });
     const formRef = React.useRef();
     const [formError, setFormError] = React.useState({});
     const [formValue, setFormValue] = React.useState({
-      name: '',
-      password: '',
+      Username: '',
+      Password: '',
     });
     const navigate = useNavigate(); 
-    const onSigninClicked = () => {
-        navigate('/Dashboard');
-        console.log(formValue);
-    }
+    const onSigninClicked = async () => {
+        try {
+            console.log(formValue);
+            const api = apiURL + '/authentication/Login';
+            const response = await fetch(api, {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+            },
+            body: JSON.stringify(formValue),
+          });
+    
+          if (response.ok) {
+            navigate('/Dashboard');
+          } else if (response.status == 401) {
+            alert('Invalid username or password! Please try again');
+          } else {
+            alert('Unable to connect to authentication service!');
+          }
+        } catch (error) {
+          console.error("An error occurred:", error);
+        }
+      };
 
     return (
             <div className="show-fake-browser login-page">
@@ -51,14 +78,8 @@ import { useNavigate } from 'react-router-dom'; // Import the necessary componen
                             formValue={formValue}
                             model={model}
                             fluid>
-                        <Form.Group>
-                            <Form.ControlLabel>Username or email address</Form.ControlLabel>
-                            <Form.Control name="name" />
-                        </Form.Group>
-                        <Form.Group>
-                            <Form.ControlLabel>Password</Form.ControlLabel>
-                            <Form.Control name="password" type="password" autoComplete="off" />
-                        </Form.Group>
+                        <TextField name="Username" label="Username" />
+                        <TextField name="Password" label="Password" />
                         <Form.Group>
                             <ButtonToolbar>
                             <Button appearance="primary" onClick={onSigninClicked}>Sign in</Button>

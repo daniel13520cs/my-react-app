@@ -2,15 +2,14 @@ import { BrowserRouter as Router, Route, Link, Routes } from 'react-router-dom';
 import NavBar from './NavBar';
 import { Panel } from 'rsuite';
 import React, { useEffect, useState } from 'react';
-import { apiUrl } from './constants';
+import {apiURL} from './constants';
 
 function UserComponent() {
   const [userData, setUserData] = useState(null);
 
   useEffect(() => {
     // Replace the URL with the actual URL of your API
-    const api = 'https://localhost:7066/User';
-
+    const api = apiURL + '/User';
     fetch(api)
       .then((response) => {
         if (!response.ok) {
