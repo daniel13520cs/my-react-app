@@ -44,12 +44,15 @@ import { useNavigate } from 'react-router-dom'; // Import the necessary componen
             const response = await fetch(api, {
             method: "POST",
             headers: {
-              "Content-Type": "application/json",
+                //'Authorization': `Bearer ${localStorage.token}`,
+                "Content-Type": "application/json",
             },
             body: JSON.stringify(formValue),
           });
     
           if (response.ok) {
+            const { token } = await response.json();
+            localStorage.setItem('jwtToken', token);
             navigate('/Dashboard');
           } else if (response.status == 401) {
             alert('Invalid username or password! Please try again');
