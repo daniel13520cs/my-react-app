@@ -15,12 +15,17 @@ const NavBar = () => {
 
   const onDashboardClicked = () => {
     navigate('/dashboard'); 
-    console.log("Home clicked");
+    console.log("dashboard clicked");
   };
 
   const onSignClicked = () => {
-    navigate('/Login');
+    navigate('/login');
     console.log('onSignClicked');
+  }
+
+  const onProductClicked = () => {
+    navigate('/product');
+    console.log('onProductClicked');
   }
 
   return (
@@ -36,7 +41,7 @@ const NavBar = () => {
                 Home
               </Nav.Item>
               <Nav.Item onSelect={onDashboardClicked} >Dashboard</Nav.Item>
-              <Nav.Item>Products</Nav.Item>
+              <Nav.Item onSelect={onProductClicked} >Products</Nav.Item>
               <Nav.Item onSelect={onSignClicked} >Signin</Nav.Item>
               <Nav.Menu title="About">
                 <Nav.Item>Company</Nav.Item>

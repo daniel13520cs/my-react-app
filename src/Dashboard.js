@@ -6,8 +6,8 @@ import NavBar from './NavBar';
 import './styles.css';
 import './timeline.less';
 import "./grid.less";
-import memeA from '../src/IMG/memeA.jpeg';
-import memeB from '../src/IMG/memeB.jpeg';
+import memeA from '../src/images/0.jpeg';
+import memeB from '../src/images/1.jpeg';
 
 const { Column, HeaderCell, Cell } = Table;
 
