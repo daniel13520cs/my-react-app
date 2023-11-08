@@ -17,7 +17,6 @@ function App() {
           <Route path="/" element={<Home />} />
           <Route path="/login" element={<Login />} />
           <Route path={`/product/:id`} element={<Product description="not yet" />} />
-          <Route path="/product" element={<Product />} />
         </Routes>
       </div>
     </Router>
