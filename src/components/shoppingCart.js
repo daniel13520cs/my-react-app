@@ -1,9 +1,9 @@
 import React from 'react';
-import { Panel } from 'rsuite';
+import { Table, Container, Content } from 'rsuite';
 import NavBar from './NavBar';
 import {products} from '../static/products'
 
-const ShoppingCart = () => {
+const ShoppingCart = (products) => {
   // Sample product data (replace with your own product data)
   const stubProducts = [
     {
@@ -30,25 +30,33 @@ const ShoppingCart = () => {
     <div>
       <NavBar />
       <h2>Product List</h2>
-      {products.map((product, index) => (
-        <Panel key={index} shaded bordered bodyFill style={{ marginTop: '10px' }}>
-          <div style={{ display: 'flex' }}>
-            <div style={{ flex: '1' }}>
-              <img
-                src={product.imageUrl}
-                alt={product.name}
-                style={{ width: '100px', height: '100px', marginRight: '10px' }}
-              />
-            </div>
-            <div style={{ flex: '2' }}>
-              <h4>{product.name}</h4>
-              <p>{product.description}</p>
-              <p>Price: {product.price}</p>
-            </div>
-          </div>
-        </Panel>
-      ))}
-    </div>
+      <Container>
+        <Content>
+          <Table height={400} data={products} rowHeight={150}> 
+            <Table.Column width={120}>
+              <Table.HeaderCell>Image</Table.HeaderCell>
+              <Table.Cell dataKey="imageUrl">
+                {(rowData) => (
+                  <img src={rowData.imageUrl} alt={rowData.name} style={{ width: '100px', height: '100px' }} />
+                )}
+              </Table.Cell>
+            </Table.Column>
+            <Table.Column flexGrow={2}>
+              <Table.HeaderCell>Name</Table.HeaderCell>
+              <Table.Cell dataKey="name" />
+            </Table.Column>
+            <Table.Column flexGrow={3}>
+              <Table.HeaderCell>Description</Table.HeaderCell>
+              <Table.Cell dataKey="description" />
+            </Table.Column>
+            <Table.Column width={120}>
+              <Table.HeaderCell>Price</Table.HeaderCell>
+              <Table.Cell dataKey="price" />
+            </Table.Column>
+          </Table>
+        </Content>
+      </Container>
+\    </div>
   );
 };
 
