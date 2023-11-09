@@ -44,6 +44,10 @@ const data = [
 ];
 
 // Define a placeholder data array
+export const imageMapping = {
+  memeA: require('../src/images/0.jpeg'),
+  memeB: require('../src/images/1.jpeg'),
+}
 const images = [memeA, memeB]; // Use actual imported images
 const imageSlidesSet = [images, images, images];
 const numImageSliders = imageSlidesSet.length;
@@ -56,26 +60,24 @@ function Dashboard() {
         <NavBar />
       </div>
       <div className="show-grid">
-        <FlexboxGrid justify="center">
-          <FlexboxGrid.Item colspan={8}> {/* The full width for the ImageSlider */}
-            <ImageSlider images={images} interval={5000} />
-          </FlexboxGrid.Item>
-          <FlexboxGrid.Item colspan={8}> {/* The full width for the ImageSlider */}
-            <ImageSlider images={images} interval={5000} />
-          </FlexboxGrid.Item>
-          <FlexboxGrid.Item colspan={8}> {/* The full width for the ImageSlider */}
-            <ImageSlider images={images} interval={5000} />
-          </FlexboxGrid.Item>
-        </FlexboxGrid>     
-        <FlexboxGrid>
-          {imageSlidesSet.map((image, index) => (
-            <FlexboxGrid.Item key={index} colspan={colspan}>
-              <ImageSlider images={image} interval={5000} />
+          <FlexboxGrid justify="center">
+            <FlexboxGrid.Item colspan={8}> {/* The full width for the ImageSlider */}
+              <ImageSlider images={images} interval={5000} />
             </FlexboxGrid.Item>
-          ))}
-        </FlexboxGrid> 
-        <FlexboxGrid>
-</FlexboxGrid>
+            <FlexboxGrid.Item colspan={8}> {/* The full width for the ImageSlider */}
+              <ImageSlider images={images} interval={5000} />
+            </FlexboxGrid.Item>
+            <FlexboxGrid.Item colspan={8}> {/* The full width for the ImageSlider */}
+              <ImageSlider images={images} interval={5000} />
+            </FlexboxGrid.Item>
+          </FlexboxGrid>     
+          <FlexboxGrid>
+            {imageSlidesSet.map((image, index) => (
+              <FlexboxGrid.Item key={index} colspan={colspan}>
+                <ImageSlider images={image} interval={5000} />
+              </FlexboxGrid.Item>
+            ))}
+          </FlexboxGrid> 
       </div>
       <div className="timeline ">
         <Timeline>

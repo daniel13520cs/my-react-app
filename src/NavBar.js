@@ -34,7 +34,7 @@ const NavBar = () => {
         <Header>
           <Navbar appearance="inverse">
             <Navbar.Brand>
-              <a style={{ color: '#fff' }}>LogicChain</a>
+              <a style={{ color: '#fff' }}>CoherentSeries</a>
             </Navbar.Brand>
             <Nav>
               <Nav.Item onSelect={onHomeClicked} icon={<HomeIcon />}>
