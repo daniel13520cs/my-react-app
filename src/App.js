@@ -4,7 +4,8 @@ import { BrowserRouter as Router, Route, useParams, Routes } from 'react-router-
 import Dashboard from './Dashboard';
 import Home from './Home';
 import Login from './Login';
-import Product from './pages/product'
+import Product from './pages/product';
+import ShoppingCart from './components/shoppingCart';
 
 function App() {
 
@@ -18,6 +19,7 @@ function App() {
           <Route path="/login" element={<Login />} />
           <Route path={`/product/:id`} element={<Product description="not yet" />} />
           <Route path={`/product`} element={<Product description="not yet" />} />
+          <Route path="/shoppingCart" element={<ShoppingCart></ShoppingCart>} />
         </Routes>
       </div>
     </Router>

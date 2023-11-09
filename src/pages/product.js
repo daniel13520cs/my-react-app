@@ -1,5 +1,5 @@
 import React from 'react';
-import NavBar from '../NavBar';
+import NavBar from '../components/NavBar';
 import { useParams } from 'react-router-dom';
 import {products} from '../static/products'
 import { Panel, FlexboxGrid, Container, Divider } from 'rsuite';

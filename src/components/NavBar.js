@@ -3,8 +3,8 @@ import { useNavigate } from 'react-router-dom'; // Import the necessary componen
 import { Container, Header, Content, Footer, Navbar, Nav } from 'rsuite';
 import HomeIcon from '@rsuite/icons/legacy/Home';
 import CogIcon from '@rsuite/icons/legacy/Cog';
-import './styles.css';
-import './container.less';
+import '../styles.css';
+import '../container.less';
 
 const NavBar = () => {
   const navigate = useNavigate(); 
@@ -28,6 +28,11 @@ const NavBar = () => {
     console.log('onProductClicked');
   }
 
+  const OnShoppingCartClicked = () => {
+    navigate('/shoppingCart');
+    console.log('OnShoppingCartClicked');
+  }
+
   return (
     <div className="show-fake-browser navbar-page">
       <Container>
@@ -42,6 +47,7 @@ const NavBar = () => {
               </Nav.Item>
               <Nav.Item onSelect={onDashboardClicked} >Dashboard</Nav.Item>
               <Nav.Item onSelect={onProductClicked} >Products</Nav.Item>
+              <Nav.Item onSelect={OnShoppingCartClicked} >ShoppingCart</Nav.Item>
               <Nav.Item onSelect={onSignClicked} >Signin</Nav.Item>
               <Nav.Menu title="About">
                 <Nav.Item>Company</Nav.Item>

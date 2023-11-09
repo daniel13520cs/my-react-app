@@ -10,7 +10,7 @@ import {
     Panel,
     FlexboxGrid
   } from 'rsuite';
-  import NavBar from './NavBar';
+  import NavBar from './components/NavBar';
 import React from 'react';
 import {apiURL} from './constants';
 import { useNavigate } from 'react-router-dom'; // Import the necessary components

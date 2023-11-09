@@ -2,7 +2,7 @@ import React from 'react';
 import { Table, Button, Timeline, FlexboxGrid, Divider } from 'rsuite';
 import ReactDOM from 'react-dom';
 import ImageSlider from './ImageSlider';
-import NavBar from './NavBar';
+import NavBar from './components/NavBar';
 import './styles.css';
 import './timeline.less';
 import "./grid.less";

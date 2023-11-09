@@ -19,6 +19,7 @@ export const products = [
         maxQuantity: 10,
         price: '899',
         currency: 'NTD',
+        imageUrl: '../productImages/0.jpeg',
     },
     {
         id: 1,
@@ -27,6 +28,7 @@ export const products = [
         maxQuantity: 20,
         price: '200',
         currency: 'NTD',
+        imageUrl: '../productImages/1.jpeg',
     },
     {
         id: 2,
@@ -35,6 +37,7 @@ export const products = [
         maxQuantity: 20,
         price: '200',
         currency: 'NTD',
+        imageUrl: '../productImages/2.jpeg',
     },
     {
         id: 3,
@@ -43,5 +46,6 @@ export const products = [
         maxQuantity: 20,
         price: '200',
         currency: 'NTD',
+        imageUrl: '../productImages/3.jpeg',
     },
   ];
