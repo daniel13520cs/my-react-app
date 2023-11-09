@@ -20,9 +20,15 @@ function Product () {
             </FlexboxGrid.Item>
             <FlexboxGrid.Item colspan={12}>
               <Container>
-                <h4>{product.name}</h4>
+              {product.name.split('\n').map((line, index) => (
+                    <h5 key={index}>{line}</h5>
+                  ))}
                 <Divider />
-                <p>{product.description}</p>
+                <div className="product-description">
+                  {product.description.split('\n').map((line, index) => (
+                    <p key={index}>{line}</p>
+                  ))}
+                </div>
                 <Divider />
                 <p>Price: ${product.price}</p>
               </Container>
