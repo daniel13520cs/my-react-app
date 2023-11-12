@@ -1,10 +1,15 @@
-import React from 'react';
-import { Table, Container, Content } from 'rsuite';
+import React, { useState } from 'react';
+import { Table, Container, Content, Button } from 'rsuite';
 import NavBar from './NavBar';
 import {products} from '../static/products'
+import { json } from 'react-router-dom';
 
-const ShoppingCart = (products) => {
+const ShoppingCart = () => {
   // Sample product data (replace with your own product data)
+
+  var cart = localStorage.getItem('cart');
+  cart = cart == null? [] : JSON.parse(cart);
+
   const stubProducts = [
     {
       name: 'Product A',
@@ -26,13 +31,18 @@ const ShoppingCart = (products) => {
     },
   ];
 
+  const onClearCartClicked = () => {
+    localStorage.removeItem('cart');
+  }
+
   return (
     <div>
       <NavBar />
       <h2>Product List</h2>
+      <Button color="blue" appearance="ghost" onClick={() => onClearCartClicked()}>Clear Cart</Button>
       <Container>
         <Content>
-          <Table height={400} data={products} rowHeight={150}> 
+          <Table height={400} data={cart} rowHeight={150}> 
             <Table.Column width={120}>
               <Table.HeaderCell>Image</Table.HeaderCell>
               <Table.Cell dataKey="imageUrl">
@@ -52,6 +62,10 @@ const ShoppingCart = (products) => {
             <Table.Column width={120}>
               <Table.HeaderCell>Price</Table.HeaderCell>
               <Table.Cell dataKey="price" />
+            </Table.Column>
+            <Table.Column width={120}>
+              <Table.HeaderCell>quantity</Table.HeaderCell>
+              <Table.Cell dataKey="quantity" />
             </Table.Column>
           </Table>
         </Content>
