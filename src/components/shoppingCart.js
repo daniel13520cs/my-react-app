@@ -31,8 +31,11 @@ const ShoppingCart = () => {
     },
   ];
 
+  const [refresh, setRefresh] = useState(false);
+
   const onClearCartClicked = () => {
     localStorage.removeItem('cart');
+    setRefresh(true);
   }
 
   return (
