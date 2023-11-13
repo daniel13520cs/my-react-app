@@ -63,6 +63,32 @@ import { useNavigate } from 'react-router-dom'; // Import the necessary componen
           console.error("An error occurred:", error);
         }
       };
+    const onRegisterClicked = async () => {
+        try {
+            console.log(formValue);
+            const api = apiURL + '/authentication/register';
+            const response = await fetch(api, {
+            method: "POST",
+            headers: {
+                //'Authorization': `Bearer ${localStorage.token}`,
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify(formValue),
+          });
+    
+          if (response.ok) {
+            const { token } = await response.json();
+            localStorage.setItem('jwtToken', token);
+            navigate('/Dashboard');
+          } else if (response.status == 401) {
+            alert('username exists');
+          } else {
+            alert('Unable to connect to authentication service!');
+          }
+        } catch (error) {
+          console.error("An error occurred:", error);
+        }
+      };
 
     return (
             <div className="show-fake-browser login-page">
@@ -86,7 +112,7 @@ import { useNavigate } from 'react-router-dom'; // Import the necessary componen
                         <Form.Group>
                             <ButtonToolbar>
                             <Button appearance="primary" onClick={onSigninClicked}>Sign in</Button>
-                            <Button appearance="primary">Register</Button>
+                            <Button appearance="primary" onClick={onRegisterClicked}>Register</Button>
                             <Button appearance="link">Forgot password?</Button>
                             </ButtonToolbar>
                         </Form.Group>
