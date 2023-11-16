@@ -51,8 +51,10 @@ import { useNavigate } from 'react-router-dom'; // Import the necessary componen
           });
     
           if (response.ok) {
-            const { token } = await response.json();
-            localStorage.setItem('jwtToken', token);
+            const resBody = await response.json();
+            console.log(resBody);
+            const { appToken, sessionToken } = resBody;
+            localStorage.setItem(appToken, sessionToken);
             navigate('/Dashboard');
           } else if (response.status == 401) {
             alert('Invalid username or password! Please try again');
