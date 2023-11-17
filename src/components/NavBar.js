@@ -33,6 +33,16 @@ const NavBar = () => {
     console.log('OnShoppingCartClicked');
   }
 
+  const onAllUsersClicked = () => {
+    navigate('/allusers');
+    console.log('OnAllUsersClicked');
+  }
+
+  const onAllUsersActivitiesClicked = () => {
+    navigate('/allUsersActivities');
+    console.log('OnAllUsersActivitiesClicked');
+  }
+
   return (
     <div className="show-fake-browser navbar-page">
       <Container>
@@ -50,8 +60,8 @@ const NavBar = () => {
               <Nav.Item onSelect={OnShoppingCartClicked} >ShoppingCart</Nav.Item>
               <Nav.Item onSelect={onSignClicked} >Signin</Nav.Item>
               <Nav.Menu title="About">
-                <Nav.Item>Company</Nav.Item>
-                <Nav.Item>Team</Nav.Item>
+                <Nav.Item onSelect={onAllUsersClicked}>AllUsers</Nav.Item>
+                <Nav.Item onSelect={onAllUsersActivitiesClicked}>AllUsersActivities</Nav.Item>
                 <Nav.Item>Contact</Nav.Item>
               </Nav.Menu>
             </Nav>

@@ -1,8 +1,8 @@
 import { BrowserRouter as Router, Route, Link, Routes } from 'react-router-dom'; // Import the necessary components
-import NavBar from './components/NavBar';
+import NavBar from '../components/NavBar';
 import { Panel } from 'rsuite';
 import React, { useEffect, useState } from 'react';
-import {apiURL} from './constants';
+import {apiURL} from '../constants';
 
 function UserComponent() {
   const [userData, setUserData] = useState(null);
