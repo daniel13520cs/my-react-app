@@ -3,13 +3,21 @@ import NavBar from '../components/NavBar';
 import { Navigate, useParams } from 'react-router-dom';
 import { products } from '../static/products'
 import { Button, Panel, FlexboxGrid, Container, Divider } from 'rsuite';
-
+import ImageUploader from '../utilities/ImageUploader';
 
 function Product() {
   const { id } = useParams();
+  if (id == null) {
+    return(    
+      <div className="product">
+        <NavBar></NavBar>
+        <ImageUploader></ImageUploader>
+      </div>
+    );
+  }
   const imagePath = id != null
-    ? `../productImages/${id}.jpeg`
-    : '../productImages/0.jpeg';
+    ? `../images/products/${id}.jpeg`
+    : '../images/products/0.jpeg';
   const product = products.find(product => product.id === parseInt(id == null ? 0 : id, 10));
 
   const onAddToCartClicked = (product) => {

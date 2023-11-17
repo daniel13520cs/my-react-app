@@ -19,7 +19,7 @@ export const products = [
         maxQuantity: 10,
         price: '899',
         currency: 'NTD',
-        imageUrl: '../productImages/0.jpeg',
+        imageUrl: '../images/products/0.jpeg',
         quantity: 0,
     },
     {
@@ -29,7 +29,7 @@ export const products = [
         maxQuantity: 20,
         price: '200',
         currency: 'NTD',
-        imageUrl: '../productImages/1.jpeg',
+        imageUrl: '../images/products/1.jpeg',
         quantity: 0,
     },
     {
@@ -39,7 +39,7 @@ export const products = [
         maxQuantity: 20,
         price: '200',
         currency: 'NTD',
-        imageUrl: '../productImages/2.jpeg',
+        imageUrl: '../images/products/2.jpeg',
         quantity: 0,
     },
     {
@@ -49,7 +49,7 @@ export const products = [
         maxQuantity: 20,
         price: '200',
         currency: 'NTD',
-        imageUrl: '../productImages/3.jpeg',
+        imageUrl: '../images/products/3.jpeg',
         quantity: 0,
     },
   ];

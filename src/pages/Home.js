@@ -3,37 +3,24 @@ import NavBar from '../components/NavBar';
 import { Panel } from 'rsuite';
 import React, { useEffect, useState } from 'react';
 import {apiURL} from '../constants';
-
-function UserComponent() {
-  const [userData, setUserData] = useState(null);
-
-  useEffect(() => {
-    // Replace the URL with the actual URL of your API
-    const api = apiURL + '/User';
-    fetch(api)
-      .then((response) => {
-        if (!response.ok) {
-          throw new Error('Network response was not ok');
-        }
-        return response.json();
-      })
-      .then((data) => {
-        setUserData(data.userId);
-      })
-      .catch((error) => {
-        console.error('Error:', error);
-      });
-  }, []);
-  return userData;
-}
+import { useUser } from '../context/userContext';
 
 function Home() {
-  var userData = UserComponent();
+  const { currentUser, logoutUser } = useUser();
   return (
     <div>
     <NavBar></NavBar>
     <Panel header="User Data">
-      <div>Session ID: {userData}</div>
+      <div>
+      {currentUser ? (
+        <div>
+          <p>Welcome, {currentUser.username}!</p>
+          <button onClick={logoutUser}>Logout</button>
+        </div>
+      ) : (
+        <p>User not logged in.</p>
+      )}
+    </div>
     </Panel>
     </div>
   );
