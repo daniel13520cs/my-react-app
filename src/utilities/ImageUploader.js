@@ -14,7 +14,9 @@ const ImageUploader = () => {
   const [imagePreview, setImagePreview] = useState(null);
   const [description, setDescription] = useState('');
   const [quantity, setQuantity] = useState(1);
-  const [inputNumber, setInputNumber] = useState('');
+  const [price, setPrice] = useState('');
+  const [name, setName] = useState('');
+  const [currency, setCurrency] = useState('');
 
   const handleFileChange = (e) => {
     const file = e.target.files[0];
@@ -36,17 +38,27 @@ const ImageUploader = () => {
     setQuantity(value);
   };
 
-  const handleInputNumberChange = (e) => {
-    setInputNumber(e);
+  const handlePriceChange = (e) => {
+    setPrice(e);
+  };
+
+  const handleNameChange = (e) => {
+    setName(e);
+  };
+
+  const handleCurrencyChange = (e) => {
+    setCurrency(e);
   };
 
   const handleUpload = () => {
     if (selectedFile) {
       const formData = new FormData();
-      formData.append('file', selectedFile);
+      formData.append('imgFile', selectedFile);
       formData.append('description', description);
       formData.append('quantity', quantity);
-      formData.append('inputNumber', inputNumber);
+      formData.append('price', price);
+      formData.append('name', name);
+      formData.append('currency', currency);
 
       fetch(apiURL + '/products/upload', {
         method: 'POST',
@@ -99,13 +111,29 @@ const ImageUploader = () => {
         placeholder="Enter a description..."
       />
       <Divider />
-      <label>Input Number:</label>
+      <label>Price:</label>
       <Input
         type="number"
-        value={inputNumber}
-        onChange={handleInputNumberChange}
+        value={price}
+        onChange={handlePriceChange}
         placeholder="Enter a number..."
         min={0}
+      />
+      <Divider />
+      <label>Name:</label>
+      <Input
+        type="text"
+        value={name}
+        onChange={handleNameChange}
+        placeholder="Enter the name..."
+      />
+      <Divider />
+      <label>Currency:</label>
+      <Input
+        type="text"
+        value={currency}
+        onChange={handleCurrencyChange}
+        placeholder="Enter the currency..."
       />
       <button onClick={handleUpload}>Upload</button>
     </div>
