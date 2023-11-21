@@ -12,38 +12,6 @@ import memeB from '../src/images/1.jpeg';
 const { Column, HeaderCell, Cell } = Table;
 
 // Define a placeholder data array
-const data = [
-  {
-    id: 1,
-    firstName: 'John',
-    lastName: 'Doe',
-    gender: 'Male',
-    age: 30,
-    postcode: '12345',
-    email: 'john@example.com',
-  },
-  {
-    id: 2,
-    firstName: 'Jane',
-    lastName: 'Smith',
-    gender: 'Female',
-    age: 25,
-    postcode: '54321',
-    email: 'jane@example.com',
-  },
-  {
-    id: 3,
-    firstName: 'Daniel',
-    lastName: 'Fake',
-    gender: 'Male',
-    age: 25,
-    postcode: '321',
-    email: 'Daniel@example.com',
-  },
-  // Add more data as needed
-];
-
-// Define a placeholder data array
 export const imageMapping = {
   memeA: require('../src/images/0.jpeg'),
   memeB: require('../src/images/1.jpeg'),

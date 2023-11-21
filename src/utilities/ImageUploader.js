@@ -13,8 +13,8 @@ const ImageUploader = () => {
   const [selectedFile, setSelectedFile] = useState(null);
   const [imagePreview, setImagePreview] = useState(null);
   const [description, setDescription] = useState('');
-  const [quantity, setQuantity] = useState(1);
-  const [price, setPrice] = useState('');
+  const [quantity, setQuantity] = useState(0);
+  const [price, setPrice] = useState(0);
   const [name, setName] = useState('');
   const [currency, setCurrency] = useState('');
 
@@ -50,30 +50,32 @@ const ImageUploader = () => {
     setCurrency(e);
   };
 
-  const handleUpload = () => {
-    if (selectedFile) {
-      const formData = new FormData();
-      formData.append('imgFile', selectedFile);
-      formData.append('description', description);
-      formData.append('quantity', quantity);
-      formData.append('price', price);
-      formData.append('name', name);
-      formData.append('currency', currency);
+  const handleUpload = async () => {
+    const formData = new FormData();
+    formData.append('file', selectedFile);
+    formData.append('description', description);
+    formData.append('quantity', quantity);
+    formData.append('price', price);
+    formData.append('name', name);
+    formData.append('currency', currency);
 
-      fetch(apiURL + '/products/upload', {
+    try {
+      const response = await fetch('http://localhost:5271/products/upload', {
         method: 'POST',
         body: formData,
-      })
-        .then(response => response.json())
-        .then(data => {
-          console.log('File uploaded successfully:', data);
-          // Perform any additional actions with the server response
-        })
-        .catch(error => {
-          console.error('Error uploading file:', error);
-        });
+      });
+
+      if (response.ok) {
+        const data = await response.json();
+        console.log('File uploaded successfully:', data);
+      } else {
+        console.error('Failed to upload file:', response.statusText);
+      }
+    } catch (error) {
+      console.error('An error occurred during the file upload:', error);
     }
   };
+
 
   return (
     <div>
