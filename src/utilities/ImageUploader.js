@@ -16,7 +16,7 @@ const ImageUploader = () => {
   const [quantity, setQuantity] = useState(0);
   const [price, setPrice] = useState(0);
   const [name, setName] = useState('');
-  const [currency, setCurrency] = useState('');
+  const [currency, setCurrency] = useState('USD');
 
   const handleFileChange = (e) => {
     const file = e.target.files[0];
@@ -47,7 +47,7 @@ const ImageUploader = () => {
   };
 
   const handleCurrencyChange = (e) => {
-    setCurrency(e);
+    setCurrency(e.target.value);
   };
 
   const handleUpload = async () => {
@@ -131,12 +131,14 @@ const ImageUploader = () => {
       />
       <Divider />
       <label>Currency:</label>
-      <Input
-        type="text"
-        value={currency}
-        onChange={handleCurrencyChange}
-        placeholder="Enter the currency..."
-      />
+      <select value={currency} onChange={handleCurrencyChange}>
+        <option value="USD">USD</option>
+        <option value="EUR">EUR</option>
+        <option value="GBP">GBP</option>
+        <option value="NTD">NTD</option>
+        {/* Add more options as needed */}
+      </select>
+      <Divider />
       <button onClick={handleUpload}>Upload</button>
     </div>
   );
