@@ -67,12 +67,12 @@ const ImageUploader = () => {
 
       if (response.ok) {
         const data = await response.json();
-        console.log('File uploaded successfully:', data);
+        alert('File uploaded successfully:', data);
       } else {
-        console.error('Failed to upload file:', response.statusText);
+        alert('Failed to upload file:', response.statusText);
       }
     } catch (error) {
-      console.error('An error occurred during the file upload:', error);
+      alert('An error occurred during the file upload:', error);
     }
   };
 

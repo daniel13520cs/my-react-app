@@ -40,7 +40,7 @@ import { useNavigate } from 'react-router-dom'; // Import the necessary componen
     const onSigninClicked = async () => {
         try {
             console.log(formValue);
-            const api = apiURL + '/authentication/Login';
+            const api = apiURL + 'authentication/Login';
             const response = await fetch(api, {
             method: "POST",
             headers: {
@@ -68,7 +68,7 @@ import { useNavigate } from 'react-router-dom'; // Import the necessary componen
     const onRegisterClicked = async () => {
         try {
             console.log(formValue);
-            const api = apiURL + '/authentication/register';
+            const api = apiURL + 'authentication/register';
             const response = await fetch(api, {
             method: "POST",
             headers: {
