@@ -22,7 +22,11 @@
     "predeploy": "npm run build",
     "deploy": "gh-pages -d build"
   },
-  "homepage": "https://daniel13520cs.github.io/my-react-app",  
+  "homepage": "https://daniel13520cs.github.io",  
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/daniel13520cs/my-react-app"
+  },  
   "eslintConfig": {
     "extends": [
       "react-app",
