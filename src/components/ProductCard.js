@@ -1,10 +1,10 @@
 import React from 'react';
-import { apiURL } from '../constants';
+import { apiURL, apiIMGURL } from '../constants';
 const ProductCard = ({ product }) => {
   return (
     <div className="product-info">
       <img
-        src={apiURL + product.imageURL}
+        src={apiIMGURL + product.imageURL}
         width={400}
         height={600}
       />
