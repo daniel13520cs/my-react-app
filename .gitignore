@@ -1,0 +1,4 @@
+
+*.json
+node_modules/@typescript-eslint/eslint-plugin/node_modules/lru-cache/index.js
+node_modules
