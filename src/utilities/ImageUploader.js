@@ -60,7 +60,7 @@ const ImageUploader = () => {
     formData.append('currency', currency);
 
     try {
-      const response = await fetch('http://localhost:5271/products/upload', {
+      const response = await fetch(apiURL + '/products/upload', {
         method: 'POST',
         body: formData,
       });
