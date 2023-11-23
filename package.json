@@ -22,7 +22,7 @@
     "predeploy": "npm run build",
     "deploy": "gh-pages -d build"
   },
-  "homepage": "https://daniel13520cs.github.io/FULLSTACK-ECOMMERCE-WEB",  
+  "homepage": "https://daniel13520cs.github.io/my-react-app",  
   "eslintConfig": {
     "extends": [
       "react-app",
