@@ -4,7 +4,7 @@ const ProductCard = ({ product }) => {
   return (
     <div className="product-info">
       <img
-        src={apiIMGURL + product.imageURL}
+        src={apiURL + product.imageURL}
         width={400}
         height={600}
       />
