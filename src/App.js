@@ -10,9 +10,8 @@ import AllUsers from './pages/allUsers';
 import AllUsersActivities from './pages/allUsersActivities';
 
 function App() {
-
   return (
-    <Router>
+    <Router basename="/my-react-app">
       <div className="App">
         {/* Define routes using the Routes component */}
         <Routes>
@@ -21,9 +20,9 @@ function App() {
           <Route path="/login" element={<Login />} />
           <Route path={`/product/:id`} element={<Product description="not yet" />} />
           <Route path={`/product`} element={<Product description="not yet" />} />
-          <Route path="/shoppingCart" element={<ShoppingCart></ShoppingCart>} />
-          <Route path="/allusers" element={<AllUsers></AllUsers>} />
-          <Route path="/allUsersActivities" element={<AllUsersActivities></AllUsersActivities>} />
+          <Route path="/shoppingCart" element={<ShoppingCart />} />
+          <Route path="/allusers" element={<AllUsers />} />
+          <Route path="/allUsersActivities" element={<AllUsersActivities />} />
         </Routes>
       </div>
     </Router>
