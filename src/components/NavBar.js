@@ -47,7 +47,7 @@ const NavBar = () => {
     <div className="show-fake-browser navbar-page">
       <Container>
         <Header>
-          <Navbar appearance="inverse">
+          <Navbar appearance="inverse" style={{ background:'black' }}>
             <Navbar.Brand>
               <a style={{ color: '#fff' }}>CoherentSeries</a>
             </Navbar.Brand>
@@ -55,7 +55,7 @@ const NavBar = () => {
               <Nav.Item onSelect={onHomeClicked} icon={<HomeIcon />}>
                 Home
               </Nav.Item>
-              <Nav.Item onSelect={onDashboardClicked} >Dashboard</Nav.Item>
+              <Nav.Item onSelect={onDashboardClicked}>Dashboard</Nav.Item>
               <Nav.Item onSelect={onProductClicked} >Products</Nav.Item>
               <Nav.Item onSelect={OnShoppingCartClicked} >ShoppingCart</Nav.Item>
               <Nav.Item onSelect={onSignClicked} >Signin</Nav.Item>
