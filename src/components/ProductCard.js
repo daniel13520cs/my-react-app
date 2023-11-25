@@ -8,7 +8,6 @@ const ProductCard = ({ product }) => {
 
   const handleQuantityChange = (newValue) => {
     setQuantity(newValue);
-    product.quantity = newValue;
   };
 
   return (
@@ -28,6 +27,7 @@ const ProductCard = ({ product }) => {
          </InputNumber>
         <AddToCartButton 
           product={product}
+          selectQuantity={quantity}
           >
         </AddToCartButton>
       </div>

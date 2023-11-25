@@ -51,25 +51,25 @@ const ShoppingCart = () => {
               <Table.HeaderCell>Image</Table.HeaderCell>
               <Table.Cell dataKey="imageUrl">
                 {(rowData) => (
-                  <img src={apiURL + rowData.product.imageURL} alt={rowData.product.name} style={{ width: '100px', height: '100px' }} />
+                  <img src={apiURL + rowData.imageURL} alt={rowData.name} style={{ width: '100px', height: '100px' }} />
                 )}
               </Table.Cell>
             </Table.Column>
             <Table.Column flexGrow={2}>
               <Table.HeaderCell>Name</Table.HeaderCell>
-              <Table.Cell dataKey="product.name" />
+              <Table.Cell dataKey="name" />
             </Table.Column>
             <Table.Column flexGrow={3}>
               <Table.HeaderCell>Description</Table.HeaderCell>
-              <Table.Cell dataKey="product.description" />
+              <Table.Cell dataKey="description" />
             </Table.Column>
             <Table.Column width={120}>
               <Table.HeaderCell>Price</Table.HeaderCell>
-              <Table.Cell dataKey="product.price" />
+              <Table.Cell dataKey="price" />
             </Table.Column>
             <Table.Column width={120}>
               <Table.HeaderCell>quantity</Table.HeaderCell>
-              <Table.Cell dataKey="product.quantity" />
+              <Table.Cell dataKey="selectQuantity" />
             </Table.Column>
           </Table>
         </Content>

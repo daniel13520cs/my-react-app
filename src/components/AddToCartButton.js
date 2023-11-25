@@ -1,15 +1,19 @@
 import { Button, Panel, FlexboxGrid, Container, Divider } from 'rsuite';
 
-function AddToCartButton(product) {
-
+function AddToCartButton({product}, selectQuantity) {
 const onAddToCartClicked = (product) => {
+    console.log(product);
     var item = localStorage.getItem('cart');
     var cart = item == null? [] : JSON.parse(item);
     var updateProduct = cart.find(p => p.id === product.id);
     if (!updateProduct) {
-      cart.push(product);
+        const newProduct = {
+            ...product,
+            selectQuantity: '1'
+        }
+        cart.push(newProduct);
     } else {
-      updateProduct.quantity += product.quantity;
+        updateProduct.selectQuantity = parseInt(updateProduct.selectQuantity) + parseInt(selectQuantity);
     }
     localStorage.setItem('cart', JSON.stringify(cart));
   }

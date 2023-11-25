@@ -31,7 +31,8 @@ function Dashboard() {
       try {
         const response = await fetch(apiURL +　'products/allProducts');
         if (response.ok) {
-          const data = await response.json();
+          var data = await response.json();
+          data.selectQuantity = 1;
           setProducts(data);
         } else {
           console.error('Failed to fetch products:', response.statusText);
