@@ -1,16 +1,36 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { apiURL, apiIMGURL } from '../constants';
+import AddToCartButton from './AddToCartButton';
+import { Slider, Grid, Row, Col, InputNumber, AutoComplete } from 'rsuite';
 const ProductCard = ({ product }) => {
+
+  const [quantity, setQuantity] = useState(1);
+
+  const handleQuantityChange = (newValue) => {
+    setQuantity(newValue);
+    product.quantity = newValue;
+  };
+
   return (
     <div className="product-info">
       <img
         src={apiURL + product.imageURL}
-        width={400}
-        height={600}
+        style={{ width: '100%', height: '100%'}}
       />
       <p>{product.name}</p>
       <p>Price: ${product.price} {product.Currency}</p>
-      {/* Add more details as needed */}
+      <div className='product-action'>
+        <InputNumber 
+          value={quantity} 
+          style={{ width: '60px' }}
+          onChange={handleQuantityChange}
+          >
+         </InputNumber>
+        <AddToCartButton 
+          product={product}
+          >
+        </AddToCartButton>
+      </div>
     </div>
   );
 };

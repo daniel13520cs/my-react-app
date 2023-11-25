@@ -4,6 +4,7 @@ import { Navigate, useParams } from 'react-router-dom';
 import { products } from '../static/products'
 import { Button, Panel, FlexboxGrid, Container, Divider } from 'rsuite';
 import ImageUploader from '../utilities/ImageUploader';
+import AddToCartButton from '../components/AddToCartButton';
 
 function Product() {
   const { id } = useParams();
@@ -30,7 +31,6 @@ function Product() {
     } else {
       updateProduct.quantity++;
     }
-    //cart.push(product);
     localStorage.setItem('cart', JSON.stringify(cart));
   }
   return (
@@ -55,7 +55,7 @@ function Product() {
               <Divider />
               <p>Price: ${product.price} {product.currency ?? 'NTD'}</p>
               <br></br>
-              <Button color="blue" appearance="ghost" onClick={() => onAddToCartClicked(product)}>Add to Cart</Button>
+              <AddToCartButton product={product}></AddToCartButton>
             </Container>
           </FlexboxGrid.Item>
         </FlexboxGrid>

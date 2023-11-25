@@ -14,6 +14,7 @@
 
 .show-grid{
   align-items: left;
+  margin-top:1cm;
 }
 
 .navBar{
@@ -33,6 +34,17 @@
   overflow-y: auto;
 }
 
+.product-action {
+  display: flex;
+  justify-content: space-between;
+}
+
 .addToCart-button {
   width:100px,
+}
+
+.product-info {
+  border-radius: 0%;
+  border: 5px solid black; /* Set the border width and style */
+  background-color: transparent;
 }

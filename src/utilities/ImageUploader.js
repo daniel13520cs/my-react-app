@@ -93,9 +93,6 @@ const ImageUploader = () => {
       <label>Quantity:</label>
       <Dropdown
         title={`${quantity}`}
-        renderTitle={() => {
-          return <Button appearance="default">Quantity: {quantity}</Button>;
-        }}
       >
         {quantityArray.map((value) => (
           <Dropdown.Item key={value} onSelect={() => handleQuantityChange(value)}>
