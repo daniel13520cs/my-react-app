@@ -1,6 +1,6 @@
 import { Button, Panel, FlexboxGrid, Container, Divider } from 'rsuite';
 
-function AddToCartButton({product}, selectQuantity) {
+function AddToCartButton({product, selectQuantity}) {
 const onAddToCartClicked = (product) => {
     console.log(product);
     var item = localStorage.getItem('cart');
