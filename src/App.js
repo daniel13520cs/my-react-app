@@ -16,7 +16,7 @@ function App() {
         {/* Define routes using the Routes component */}
         <Routes>
           <Route path="/dashboard" element={<Dashboard />} />
-          <Route path="/" element={<Home />} />
+          <Route path="/" element={<Dashboard />} />
           <Route path="/login" element={<Login />} />
           <Route path={`/product/:id`} element={<Product description="not yet" />} />
           <Route path={`/product`} element={<Product description="not yet" />} />

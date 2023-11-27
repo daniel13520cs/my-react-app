@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
 import { apiURL, apiIMGURL } from '../constants';
+import { Link } from 'react-router-dom';
+
 import AddToCartButton from './AddToCartButton';
 import { Slider, Grid, Row, Col, InputNumber, AutoComplete } from 'rsuite';
 const ProductCard = ({ product }) => {
@@ -16,7 +18,7 @@ const ProductCard = ({ product }) => {
         src={apiURL + product.imageURL}
         style={{ width: '100%', height: '100%'}}
       />
-      <p>{product.name}</p>
+      <Link to={`/product/${product.id}`} state={{ product }}>{product.name}</Link>
       <p>Price: ${product.price} {product.Currency}</p>
       <div className='product-action'>
         <InputNumber 

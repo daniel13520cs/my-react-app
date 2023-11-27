@@ -1,13 +1,24 @@
 import React, { useState, Context } from 'react';
 import NavBar from '../components/NavBar';
-import { Navigate, useParams } from 'react-router-dom';
+import { apiURL, apiIMGURL } from '../constants';
+import { useLocation, useParams } from 'react-router-dom';
 import { products } from '../static/products'
 import { Button, Panel, FlexboxGrid, Container, Divider } from 'rsuite';
 import ImageUploader from '../utilities/ImageUploader';
 import AddToCartButton from '../components/AddToCartButton';
+import { Slider, Grid, Row, Col, InputNumber, AutoComplete } from 'rsuite';
 
 function Product() {
+  
+  const [quantity, setQuantity] = useState(1);
+
+  const handleQuantityChange = (newValue) => {
+    setQuantity(newValue);
+  };
+
   const { id } = useParams();
+  const location = useLocation();
+  const { product } = location.state || {};
   if (id == null) {
     return(    
       <div className="product">
@@ -19,27 +30,16 @@ function Product() {
   const imagePath = id != null
     ? `../images/products/${id}.jpeg`
     : '../images/products/0.jpeg';
-  const product = products.find(product => product.id === parseInt(id == null ? 0 : id, 10));
 
-  const onAddToCartClicked = (product) => {
-    var item = localStorage.getItem('cart');
-    var cart = item == null? [] : JSON.parse(item);
-    var updateProduct = cart.find(p => p.id === product.id);
-    if (!updateProduct) {
-      product.quantity = 1;
-      cart.push(product);
-    } else {
-      updateProduct.quantity++;
-    }
-    localStorage.setItem('cart', JSON.stringify(cart));
-  }
+
+  //const product = products.find(product => product.id === parseInt(id == null ? 0 : id, 10));
   return (
     <div className="product">
       <NavBar></NavBar>
       <Panel bordered>
         <FlexboxGrid>
           <FlexboxGrid.Item colspan={12}>
-            <img src={imagePath} width={400} height={600} alt="Product" className="product-image" />
+            <img src={apiURL + product.imageURL} style={{ width: '80%', height: '80%'}} alt="Product" className="product-image" />
           </FlexboxGrid.Item>
           <FlexboxGrid.Item colspan={12}>
             <Container>
@@ -55,7 +55,15 @@ function Product() {
               <Divider />
               <p>Price: ${product.price} {product.currency ?? 'NTD'}</p>
               <br></br>
-              <AddToCartButton product={product}></AddToCartButton>
+              <InputNumber 
+                value={quantity} 
+                style={{ width: '60px' }}
+                onChange={handleQuantityChange}
+                min={1}
+                >
+              </InputNumber>
+              <br></br>
+              <AddToCartButton product={product} selectQuantity={quantity}></AddToCartButton>
             </Container>
           </FlexboxGrid.Item>
         </FlexboxGrid>
