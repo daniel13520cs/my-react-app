@@ -23,7 +23,7 @@ const ProductCard = ({ product }) => {
       <div className='product-action'>
         <InputNumber 
           value={quantity} 
-          style={{ width: '60px' }}
+          style={{ width: '60px', height: '40px'}}
           onChange={handleQuantityChange}
           min={1}
           >

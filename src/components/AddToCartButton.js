@@ -16,6 +16,7 @@ const onAddToCartClicked = (product) => {
         updateProduct.selectQuantity = parseInt(updateProduct.selectQuantity) + parseInt(selectQuantity);
     }
     localStorage.setItem('cart', JSON.stringify(cart));
+    alert("product added to shopping cart");
   }
 
   return (              
