@@ -42,7 +42,21 @@ function Dashboard() {
       }
     };
 
+    const fetchURLProducts = async (productURL) => {
+      try {
+        const reponse = await fetch(productURL);
+        if (reponse.ok) {
+          var data = await reponse.json();
+        } else {
+          console.error('Failed to fetch products from fetchURlProducts');
+        }
+      } catch (error) {
+        console.error('error happened fetchURLProducts');
+      }
+    }
+
     fetchProducts();
+    //fetchURLProducts('https://zozo.jp/shop/vis/goods/76951959/?did=125986058');
   }, []);
 
   return (
